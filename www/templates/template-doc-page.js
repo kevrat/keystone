@@ -17,7 +17,8 @@ class DocumentPage extends Component {
 						<article css={styles.article}>
 							<a href={editPath} css={styles.edit} target="_blank">
 								<EditIcon css={styles.editIcon} />
-								Edit this page
+								{/*Edit this page*/}
+								Редактируйте эту страницу
 							</a>
 							<div dangerouslySetInnerHTML={{ __html: body }} />
 						</article>

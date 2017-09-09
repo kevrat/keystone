@@ -8,13 +8,16 @@ class Pagination extends Component {
 		let count = '';
 		const { currentPage, pageSize, plural, singular, total } = this.props;
 		if (!total) {
-			count = 'No ' + (plural || 'records');
+			// count = 'No ' + (plural || 'records');
+			count = 'Нет ' + (plural || 'записей');
 		} else if (total > pageSize) {
 			let start = (pageSize * (currentPage - 1)) + 1;
 			let end = Math.min(start + pageSize - 1, total);
-			count = `Showing ${start} to ${end} of ${total}`;
+			// count = `Showing ${start} to ${end} of ${total}`;
+			count = `Показано ${start} to ${end} of ${total}`;
 		} else {
-			count = 'Showing ' + total;
+			// count = 'Showing ' + total;
+			count = 'Показано ' + total;
 			if (total > 1 && plural) {
 				count += ' ' + plural;
 			} else if (total === 1 && singular) {

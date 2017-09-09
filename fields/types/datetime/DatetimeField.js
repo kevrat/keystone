@@ -130,7 +130,8 @@ module.exports = Field.create({
 							/>
 						</Section>
 						<Section>
-							<Button onClick={this.setNow}>Now</Button>
+							{/*<Button onClick={this.setNow}>Now</Button>*/}
+							<Button onClick={this.setNow}>Сейчас</Button>
 						</Section>
 					</Group>
 					<input

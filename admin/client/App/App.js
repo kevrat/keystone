@@ -36,9 +36,11 @@ const App = (props) => {
 		if (!currentList) {
 			children = (
 				<Container>
-					<p>List not found!</p>
+					{/*<p>List not found!</p>*/}
+					<p>Список не найден!</p>
 					<Link to={`${Keystone.adminPath}`}>
-						Go back home
+						{/*Go back home*/}
+						Домой
 					</Link>
 				</Container>
 			);

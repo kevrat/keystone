@@ -138,13 +138,19 @@ module.exports = Field.create({
 		if (this.state.userSelectedFile) {
 			return (
 				<FileChangeMessage color="success">
-					Save to Upload
+					{/*Save to Upload*/}
+					Нажмите "Сохранить" для загрузки
 				</FileChangeMessage>
 			);
 		} else if (this.state.removeExisting) {
+			// return (
+			// 	<FileChangeMessage color="danger">
+			// 		File {this.props.autoCleanup ? 'deleted' : 'removed'} - save to confirm
+			// 	</FileChangeMessage>
+			// );
 			return (
 				<FileChangeMessage color="danger">
-					File {this.props.autoCleanup ? 'deleted' : 'removed'} - save to confirm
+					Файл {this.props.autoCleanup ? 'удален' : 'удален'} - нажмите "Сохранить" для подтверждения
 				</FileChangeMessage>
 			);
 		} else {
@@ -155,15 +161,18 @@ module.exports = Field.create({
 		if (this.state.removeExisting) {
 			return (
 				<Button variant="link" onClick={this.undoRemove}>
-					Undo Remove
+					{/*Undo Remove*/}
+					Отменить удаление
 				</Button>
 			);
 		} else {
 			var clearText;
 			if (this.state.userSelectedFile) {
-				clearText = 'Cancel Upload';
+				// clearText = 'Cancel Upload';
+				clearText = 'Отменить загрузку';
 			} else {
-				clearText = (this.props.autoCleanup ? 'Delete File' : 'Remove File');
+				// clearText = (this.props.autoCleanup ? 'Delete File' : 'Remove File');
+				clearText = (this.props.autoCleanup ? 'Удалить файл' : 'Удалить файл');
 			}
 			return (
 				<Button variant="link" color="cancel" onClick={this.handleRemove}>
@@ -195,7 +204,8 @@ module.exports = Field.create({
 		const buttons = (
 			<div style={this.hasFile() ? { marginTop: '1em' } : null}>
 				<Button onClick={this.triggerFileBrowser}>
-					{this.hasFile() ? 'Change' : 'Upload'} File
+					{/*{this.hasFile() ? 'Change' : 'Upload'} File*/}
+					{this.hasFile() ? 'Изменить' : 'Загрузить'} файл
 				</Button>
 				{this.hasFile() && this.renderClearButton()}
 			</div>

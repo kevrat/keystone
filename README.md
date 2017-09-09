@@ -1,5 +1,5 @@
 ---
-title: KeystoneJS
+title: KeystoneJS RUS ADMIN UI
 ---
 
 ![KeystoneJS](http://keystonejs.com/images/logo.svg)

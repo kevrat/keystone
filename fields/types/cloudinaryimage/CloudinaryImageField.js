@@ -130,7 +130,8 @@ module.exports = Field.create({
 	// Handle image selection in file browser
 	handleImageChange (e) {
 		if (!window.FileReader) {
-			return alert('File reader not supported by browser.');
+			// return alert('File reader not supported by browser.');
+			return alert('Этот браузер не поддерживает загрузку файлов.');
 		}
 
 		var reader = new FileReader();
@@ -138,7 +139,8 @@ module.exports = Field.create({
 		if (!file) return;
 
 		if (!file.type.match(SUPPORTED_REGEX)) {
-			return alert('Unsupported file type. Supported formats are: GIF, PNG, JPG, BMP, ICO, PDF, TIFF, EPS, PSD, SVG');
+			// return alert('Unsupported file type. Supported formats are: GIF, PNG, JPG, BMP, ICO, PDF, TIFF, EPS, PSD, SVG');
+			return alert('Неподдерживаемый тип файла. Поддерживаются: GIF, PNG, JPG, BMP, ICO, PDF, TIFF, EPS, PSD, SVG');
 		}
 
 		reader.readAsDataURL(file);
@@ -233,13 +235,15 @@ module.exports = Field.create({
 		if (this.state.userSelectedFile) {
 			return (
 				<FileChangeMessage color="success">
-					Save to Upload
+					{/*Save to Upload*/}
+					Нажмите "Сохранить" для загрузки
 				</FileChangeMessage>
 			);
 		} else if (this.state.removeExisting) {
 			return (
 				<FileChangeMessage color="danger">
-					Save to Remove
+					{/*Save to Remove*/}
+					Нажмите "Сохранить" для удаления
 				</FileChangeMessage>
 			);
 		} else {
@@ -249,11 +253,13 @@ module.exports = Field.create({
 
 	// Output [cancel/remove/undo] button
 	renderClearButton () {
-		const clearText = this.hasLocal() ? 'Cancel' : 'Remove Image';
+		// const clearText = this.hasLocal() ? 'Cancel' : 'Remove Image';
+		const clearText = this.hasLocal() ? 'Отмена' : 'Удалить изображение';
 
 		return this.state.removeExisting ? (
 			<Button variant="link" onClick={this.undoRemove}>
-				Undo Remove
+				{/*Undo Remove*/}
+				Отменить удаление
 			</Button>
 		) : (
 			<Button variant="link" color="cancel" onClick={this.handleRemove}>
@@ -266,7 +272,8 @@ module.exports = Field.create({
 		return (
 			<div key={this.props.path + '_toolbar'} className="image-toolbar">
 				<Button onClick={this.triggerFileBrowser}>
-					{this.hasImage() ? 'Change' : 'Upload'} Image
+					{/*{this.hasImage() ? 'Change' : 'Upload'} Image*/}
+					{this.hasImage() ? 'Изменить' : 'Загрузить'} изображение
 				</Button>
 				{this.hasImage() ? this.renderClearButton() : null}
 			</div>

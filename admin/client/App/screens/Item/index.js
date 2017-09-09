@@ -113,9 +113,11 @@ var ItemView = React.createClass({
 				return (
 					<Container>
 						<Alert color="danger" style={{ marginTop: '2em' }}>
-							No item matching id "{this.props.routeParams.itemId}".&nbsp;
+							{/*No item matching id "{this.props.routeParams.itemId}".&nbsp;*/}
+							Нет объекта с таким id "{this.props.routeParams.itemId}".&nbsp;
 							<Link to={`${Keystone.adminPath}/${this.props.routeParams.listId}`}>
-								Got back to {this.props.routeParams.listId}?
+								{/*Got back to {this.props.routeParams.listId}?*/}
+								Вернуться назад к {this.props.routeParams.listId}?
 							</Link>
 						</Alert>
 					</Container>
@@ -128,7 +130,8 @@ var ItemView = React.createClass({
 				return (
 					<Container>
 						<Alert color="danger" style={{ marginTop: '2em' }}>
-							We encountered some network problems, please refresh.
+							{/*We encountered some network problems, please refresh.*/}
+							Проблемы с сетью, обновите страницу.
 						</Alert>
 					</Container>
 				);
@@ -137,7 +140,8 @@ var ItemView = React.createClass({
 		return (
 			<Container>
 				<Alert color="danger" style={{ marginTop: '2em' }}>
-					An unknown error has ocurred, please refresh.
+					{/*An unknown error has ocurred, please refresh.*/}
+					Произошла неизвестная ошибка, обновите страницу.
 				</Alert>
 			</Container>
 		);

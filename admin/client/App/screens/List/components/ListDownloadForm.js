@@ -123,7 +123,8 @@ var ListDownloadForm = React.createClass({
 		});
 
 		const allColumnsSelected = this.allColumnsSelected();
-		const checkboxLabel = allColumnsSelected ? 'Select None' : 'Select All';
+		// const checkboxLabel = allColumnsSelected ? 'Select None' : 'Select All';
+		const checkboxLabel = allColumnsSelected ? 'Выбрать ничего' : 'Выбрать все';
 
 		return (
 			<div>
@@ -151,14 +152,17 @@ var ListDownloadForm = React.createClass({
 					active={this.state.isOpen}
 					id="listHeaderDownloadButton"
 					glyph="cloud-download"
-					label="Download"
+					// label="Download"
+					label="Скачать"
 					onClick={() => this.togglePopout(!this.state.isOpen)}
 				/>
 				<Popout isOpen={this.state.isOpen} onCancel={() => this.togglePopout(false)} relativeToID="listHeaderDownloadButton">
-					<Popout.Header title="Download" />
+					{/*<Popout.Header title="Download" />*/}
+					<Popout.Header title="Скачать" />
 					<Popout.Body scrollable>
 						<Form layout="horizontal" labelWidth={100} component="div">
-							<FormField label="File format:">
+							{/*<FormField label="File format:">*/}
+							<FormField label="Формат файла:">
 								<SegmentedControl
 									equalWidthSegments
 									onChange={this.changeFormat}
@@ -166,11 +170,13 @@ var ListDownloadForm = React.createClass({
 									value={this.state.format}
 								/>
 							</FormField>
-							<FormField label="Columns:" style={{ marginBottom: 0 }}>
+							{/*<FormField label="Columns:" style={{ marginBottom: 0 }}>*/}
+							<FormField label="Колонки:" style={{ marginBottom: 0 }}>
 								<LabelledControl
 									autoFocus
 									checked={useCurrentColumns}
-									label="Use currently selected"
+									// label="Use currently selected"
+									label="Использовать выбранные"
 									onChange={this.toggleCurrentlySelectedColumns}
 									type="checkbox"
 									value
@@ -181,9 +187,11 @@ var ListDownloadForm = React.createClass({
 					</Popout.Body>
 					<Popout.Footer
 						primaryButtonAction={this.handleDownloadRequest}
-						primaryButtonLabel="Download"
+						// primaryButtonLabel="Download"
+						primaryButtonLabel="Скачать"
 						secondaryButtonAction={() => this.togglePopout(false)}
-						secondaryButtonLabel="Cancel" />
+						// secondaryButtonLabel="Cancel" />
+						secondaryButtonLabel="Отмена" />
 				</Popout>
 			</div>
 		);

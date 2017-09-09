@@ -217,8 +217,11 @@ var EditForm = React.createClass({
 				React.createElement(Fields[nameField.type], nameFieldProps)
 			);
 		} else {
+			// return wrapNameField(
+			// 	<h2>{this.props.data.name || '(no name)'}</h2>
+			// );
 			return wrapNameField(
-				<h2>{this.props.data.name || '(no name)'}</h2>
+				<h2>{this.props.data.name || '(нет названия)'}</h2>
 			);
 		}
 	},
@@ -261,7 +264,9 @@ var EditForm = React.createClass({
 		}
 
 		const { loading } = this.state;
-		const loadingButtonText = loading ? 'Saving' : 'Save';
+		// const loadingButtonText = loading ? 'Saving' : 'Save';
+		const loadingButtonText = loading ? 'Сохранение' : 'Сохранить';
+
 
 		// Padding must be applied inline so the FooterBar can determine its
 		// innerHeight at runtime. Aphrodite's styling comes later...
@@ -282,17 +287,25 @@ var EditForm = React.createClass({
 					)}
 					{!this.props.list.noedit && (
 						<Button disabled={loading} onClick={this.toggleResetDialog} variant="link" color="cancel" data-button="reset">
+							{/*<ResponsiveText*/}
+								{/*hiddenXS="reset changes"*/}
+								{/*visibleXS="reset"*/}
+							{/*/>*/}
 							<ResponsiveText
-								hiddenXS="reset changes"
-								visibleXS="reset"
+								hiddenXS="отменить изменения"
+								visibleXS="отменить"
 							/>
 						</Button>
 					)}
 					{!this.props.list.nodelete && (
 						<Button disabled={loading} onClick={this.toggleDeleteDialog} variant="link" color="delete" style={styles.deleteButton} data-button="delete">
+							{/*<ResponsiveText*/}
+								{/*hiddenXS={`delete ${this.props.list.singular.toLowerCase()}`}*/}
+								{/*visibleXS="delete"*/}
+							{/*/>*/}
 							<ResponsiveText
-								hiddenXS={`delete ${this.props.list.singular.toLowerCase()}`}
-								visibleXS="delete"
+								hiddenXS={`удалить ${this.props.list.singular.toLowerCase()}`}
+								visibleXS="удалить"
 							/>
 						</Button>
 					)}
@@ -314,8 +327,13 @@ var EditForm = React.createClass({
 		if (this.props.list.tracking.createdAt) {
 			data.createdAt = this.props.data.fields[this.props.list.tracking.createdAt];
 			if (data.createdAt) {
+				// elements.push(
+				// 	<FormField key="createdAt" label="Created on">
+				// 		<FormInput noedit title={moment(data.createdAt).format('DD/MM/YYYY h:mm:ssa')}>{moment(data.createdAt).format('Do MMM YYYY')}</FormInput>
+				// 	</FormField>
+				// );
 				elements.push(
-					<FormField key="createdAt" label="Created on">
+					<FormField key="createdAt" label="Создано в">
 						<FormInput noedit title={moment(data.createdAt).format('DD/MM/YYYY h:mm:ssa')}>{moment(data.createdAt).format('Do MMM YYYY')}</FormInput>
 					</FormField>
 				);
@@ -327,8 +345,13 @@ var EditForm = React.createClass({
 			if (data.createdBy && data.createdBy.name) {
 				let createdByName = getNameFromData(data.createdBy.name);
 				if (createdByName) {
+					// elements.push(
+					// 	<FormField key="createdBy" label="Created by">
+					// 		<FormInput noedit>{data.createdBy.name.first} {data.createdBy.name.last}</FormInput>
+					// 	</FormField>
+					// );
 					elements.push(
-						<FormField key="createdBy" label="Created by">
+						<FormField key="createdBy" label="Создал">
 							<FormInput noedit>{data.createdBy.name.first} {data.createdBy.name.last}</FormInput>
 						</FormField>
 					);
@@ -339,8 +362,13 @@ var EditForm = React.createClass({
 		if (this.props.list.tracking.updatedAt) {
 			data.updatedAt = this.props.data.fields[this.props.list.tracking.updatedAt];
 			if (data.updatedAt && (!data.createdAt || data.createdAt !== data.updatedAt)) {
+				// elements.push(
+				// 	<FormField key="updatedAt" label="Updated on">
+				// 		<FormInput noedit title={moment(data.updatedAt).format('DD/MM/YYYY h:mm:ssa')}>{moment(data.updatedAt).format('Do MMM YYYY')}</FormInput>
+				// 	</FormField>
+				// );
 				elements.push(
-					<FormField key="updatedAt" label="Updated on">
+					<FormField key="updatedAt" label="Обновлено в">
 						<FormInput noedit title={moment(data.updatedAt).format('DD/MM/YYYY h:mm:ssa')}>{moment(data.updatedAt).format('Do MMM YYYY')}</FormInput>
 					</FormField>
 				);
@@ -352,8 +380,13 @@ var EditForm = React.createClass({
 			if (data.updatedBy && data.updatedBy.name) {
 				let updatedByName = getNameFromData(data.updatedBy.name);
 				if (updatedByName) {
+					// elements.push(
+					// 	<FormField key="updatedBy" label="Updated by">
+					// 		<FormInput noedit>{data.updatedBy.name.first} {data.updatedBy.name.last}</FormInput>
+					// 	</FormField>
+					// );
 					elements.push(
-						<FormField key="updatedBy" label="Updated by">
+						<FormField key="updatedBy" label="Обновил">
 							<FormInput noedit>{data.updatedBy.name.first} {data.updatedBy.name.last}</FormInput>
 						</FormField>
 					);
@@ -361,9 +394,15 @@ var EditForm = React.createClass({
 			}
 		}
 
+		// return Object.keys(elements).length ? (
+		// 	<div className="EditForm__meta">
+		// 		<h3 className="form-heading">Meta</h3>
+		// 		{elements}
+		// 	</div>
+		// ) : null;
 		return Object.keys(elements).length ? (
 			<div className="EditForm__meta">
-				<h3 className="form-heading">Meta</h3>
+				<h3 className="form-heading">Мета</h3>
 				{elements}
 			</div>
 		) : null;
@@ -385,23 +424,28 @@ var EditForm = React.createClass({
 				</Grid.Row>
 				{this.renderFooterBar()}
 				<ConfirmationDialog
-					confirmationLabel="Reset"
+					// confirmationLabel="Reset"
+					confirmationLabel="Отменить"
 					isOpen={this.state.resetDialogIsOpen}
 					onCancel={this.toggleResetDialog}
 					onConfirmation={this.handleReset}
 				>
-					<p>Reset your changes to <strong>{this.props.data.name}</strong>?</p>
+					{/*<p>Reset your changes to <strong>{this.props.data.name}</strong>?</p>*/}
+					<p>Отменить изменения <strong>{this.props.data.name}</strong>?</p>
 				</ConfirmationDialog>
 				<ConfirmationDialog
-					confirmationLabel="Delete"
+					// confirmationLabel="Delete"
+					confirmationLabel="Удалить"
 					isOpen={this.state.deleteDialogIsOpen}
 					onCancel={this.toggleDeleteDialog}
 					onConfirmation={this.handleDelete}
 				>
-					Are you sure you want to delete <strong>{this.props.data.name}?</strong>
+					{/*Are you sure you want to delete <strong>{this.props.data.name}?</strong>*/}
+					Вы хотите удалить <strong>{this.props.data.name}?</strong>
 					<br />
 					<br />
-					This cannot be undone.
+					{/*This cannot be undone.*/}
+					Действие необратимо.
 				</ConfirmationDialog>
 			</form>
 		);

@@ -23,7 +23,8 @@ module.exports = Field.create({
 				className="keystone-relational-button"
 				glyph="link"
 				onClick={this.openValue}
-				title={'Open ' + this.props.value + ' in a new tab'}
+				// title={'Open ' + this.props.value + ' in a new tab'}
+				title={'Открыть ' + this.props.value + ' в новой вкладке'}
 				variant="link"
 			/>
 		);

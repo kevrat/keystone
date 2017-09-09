@@ -61,7 +61,8 @@ class Filter extends Component {
 				/>
 				<Popout isOpen={this.state.isOpen} onCancel={this.close} relativeToID={filterId}>
 					<form onSubmit={this.updateFilter}>
-						<Popout.Header title="Edit Filter" />
+						{/*<Popout.Header title="Edit Filter" />*/}
+						<Popout.Header title="Изменение фильтра" />
 						<Popout.Body>
 							<FilterComponent
 								field={filter.field}
@@ -72,9 +73,11 @@ class Filter extends Component {
 						<Popout.Footer
 							ref="footer"
 							primaryButtonIsSubmit
-							primaryButtonLabel="Apply"
+							// primaryButtonLabel="Apply"
+							primaryButtonLabel="Применить"
 							secondaryButtonAction={this.close}
-							secondaryButtonLabel="Cancel" />
+							// secondaryButtonLabel="Cancel" />
+							secondaryButtonLabel="Отмена" />
 					</form>
 				</Popout>
 			</span>

@@ -84,7 +84,8 @@ const CreateForm = React.createClass({
 						values: {},
 						alerts: {
 							success: {
-								success: 'Item created',
+								// success: 'Item created',
+								success: 'Создание успешно',
 							},
 						},
 					});
@@ -153,7 +154,8 @@ const CreateForm = React.createClass({
 		return (
 			<Form layout="horizontal" onSubmit={this.submitForm}>
 				<Modal.Header
-					text={'Create a new ' + list.singular}
+					// text={'Create a new ' + list.singular}
+					text={'Создать ' + list.singular}
 					showCloseButton
 				/>
 				<Modal.Body>
@@ -162,7 +164,8 @@ const CreateForm = React.createClass({
 				</Modal.Body>
 				<Modal.Footer>
 					<Button color="success" type="submit" data-button-type="submit">
-						Create
+						{/*Create*/}
+						Создать
 					</Button>
 					<Button
 						variant="link"
@@ -170,7 +173,8 @@ const CreateForm = React.createClass({
 						data-button-type="cancel"
 						onClick={this.props.onCancel}
 					>
-						Cancel
+						{/*Cancel*/}
+						Отмена
 					</Button>
 				</Modal.Footer>
 			</Form>

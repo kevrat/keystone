@@ -39,7 +39,8 @@ var PrimaryNavigation = React.createClass({
 			<PrimaryNavItem
 				label="octicon-sign-out"
 				href={this.props.signoutUrl}
-				title="Sign Out"
+				// title="Sign Out"
+				title="Выйти"
 			>
 				<span className="octicon octicon-sign-out" />
 			</PrimaryNavItem>
@@ -53,7 +54,8 @@ var PrimaryNavigation = React.createClass({
 			<PrimaryNavItem
 				label="octicon-globe"
 				href={Keystone.backUrl}
-				title={'Front page - ' + this.props.brand}
+				// title={'Front page - ' + this.props.brand}
+				title={'Главная страница - ' + this.props.brand}
 			>
 				<span className="octicon octicon-globe" />
 			</PrimaryNavItem>
@@ -78,7 +80,8 @@ var PrimaryNavigation = React.createClass({
 			<PrimaryNavItem
 				className={className}
 				label="octicon-home"
-				title={'Dashboard - ' + brand}
+				// title={'Dashboard - ' + brand}
+				title={'Доска управления - ' + brand}
 				to={Keystone.adminPath}
 			>
 				<span className="octicon octicon-home" />

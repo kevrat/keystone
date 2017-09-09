@@ -106,7 +106,8 @@ const ListView = React.createClass({
 		list.createItem(null, (err, data) => {
 			if (err) {
 				// TODO Proper error handling
-				alert('Something went wrong, please try again!');
+				// alert('Something went wrong, please try again!');
+				alert('Что-то пошло не так, попробуйте еще раз');
 				console.log(err);
 			} else {
 				this.context.router.push(`${Keystone.adminPath}/${list.path}/${data.id}`);
@@ -157,13 +158,16 @@ const ListView = React.createClass({
 		this.setState({
 			confirmationDialog: {
 				isOpen: true,
-				label: 'Delete',
+				// label: 'Delete',
+				label: 'Удалить',
 				body: (
 					<div>
-						Are you sure you want to delete {itemCount}?
+						{/*Are you sure you want to delete {itemCount}?*/}
+						Вы хотите удалить {itemCount}?
 						<br />
 						<br />
-						This cannot be undone.
+						{/*This cannot be undone.*/}
+						Действие необратимо
 					</div>
 				),
 				onConfirmation: () => {
@@ -346,13 +350,16 @@ const ListView = React.createClass({
 		this.setState({
 			confirmationDialog: {
 				isOpen: true,
-				label: 'Delete',
+				// label: 'Delete',
+				label: 'Удалить',
 				body: (
 					<div>
-						Are you sure you want to delete <strong>{item.name}</strong>?
+						{/*Are you sure you want to delete <strong>{item.name}</strong>?*/}
+						Вы хотите удалить <strong>{item.name}</strong>?
 						<br />
 						<br />
-						This cannot be undone.
+						{/*This cannot be undone.*/}
+						Действие необратимо
 					</div>
 				),
 				onConfirmation: () => {
@@ -413,7 +420,8 @@ const ListView = React.createClass({
 		// display the button if create allowed
 		const button = !currentList.nocreate ? (
 			<GlyphButton color="success" glyph="plus" position="left" onClick={onClick} data-e2e-list-create-button="no-results">
-				Create {currentList.singular}
+				{/*Create {currentList.singular}*/}
+				Создать {currentList.singular}
 			</GlyphButton>
 		) : null;
 
@@ -422,11 +430,13 @@ const ListView = React.createClass({
 				{(this.props.error) ? (
 					<FlashMessages
 						messages={{ error: [{
-							title: "There is a problem with the network, we're trying to reconnect...",
+							// title: "There is a problem with the network, we're trying to reconnect...",
+							title: "Проблема с сетью, идет переподключение...",
 						}] }}
 					/>
 				) : null}
-				<BlankState heading={`No ${this.props.currentList.plural.toLowerCase()} found...`} style={{ marginTop: 40 }}>
+				{/*<BlankState heading={`No ${this.props.currentList.plural.toLowerCase()} found...`} style={{ marginTop: 40 }}>*/}
+				<BlankState heading={`${this.props.currentList.plural.toLowerCase()} отсутствуют...`} style={{ marginTop: 40 }}>
 					{button}
 				</BlankState>
 			</Container>
@@ -458,7 +468,8 @@ const ListView = React.createClass({
 					{(this.props.error) ? (
 						<FlashMessages
 							messages={{ error: [{
-								title: "There is a problem with the network, we're trying to reconnect..",
+								// title: "There is a problem with the network, we're trying to reconnect...",
+								title: "Проблема с сетью, идет переподключение...",
 							}] }}
 						/>
 					) : null}

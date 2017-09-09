@@ -33,7 +33,8 @@ const LoginForm = ({
 					/>
 				</FormField>
 				<Button disabled={isAnimating} color="primary" type="submit">
-					Sign In
+					{/*Sign In*/}
+					Войти
 				</Button>
 			</Form>
 		</div>
