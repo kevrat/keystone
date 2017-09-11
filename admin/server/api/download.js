@@ -8,6 +8,7 @@ supports more features at the moment (custom .toCSV method on lists, etc)
 var _ = require('lodash');
 var async = require('async');
 var moment = require('moment');
+moment.locale('ru');
 
 var FN_ARGS = /^function\s*[^\(]*\(\s*([^\)]*)\)/m;
 

@@ -1,4 +1,5 @@
 var moment = require('moment');
+moment.locale('ru');
 var DateType = require('../date/DateType');
 var FieldType = require('../Type');
 var util = require('util');

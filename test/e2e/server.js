@@ -4,6 +4,7 @@ var ReactEngine = require('react-engine');
 var engine = ReactEngine.server.create({});
 var request = require('superagent');
 var moment = require('moment');
+moment.locale('ru');
 var mongoose = require('mongoose');
 var path = require('path');
 var keystoneNightwatchE2e = require('keystone-nightwatch-e2e');

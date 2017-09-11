@@ -1,5 +1,6 @@
 var FieldType = require('../Type');
 var moment = require('moment');
+moment.locale('ru');
 var util = require('util');
 var utils = require('keystone-utils');
 var TextType = require('../text/TextType');

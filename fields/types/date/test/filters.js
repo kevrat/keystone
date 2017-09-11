@@ -1,5 +1,6 @@
 var demand = require('must');
 var moment = require('moment');
+moment.locale('ru');
 
 exports.initList = function (List) {
 	List.add({

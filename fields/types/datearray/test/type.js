@@ -1,6 +1,7 @@
 var demand = require('must');
 var DateArrayType = require('../DateArrayType');
 var moment = require('moment');
+moment.locale('ru');
 
 exports.initList = function (List) {
 	List.add({

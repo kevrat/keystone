@@ -3,6 +3,7 @@ TODO: Needs Review and Spec
 */
 
 var moment = require('moment');
+moment.locale('ru');
 var assign = require('object-assign');
 
 module.exports = function (req, res, next) {

@@ -2,6 +2,7 @@ var chalk = require('chalk');
 var crypto = require('crypto');
 var fs = require('fs-extra');
 var moment = require('moment');
+moment.locale('ru');
 var packages = require('../../client/packages');
 var path = require('path');
 

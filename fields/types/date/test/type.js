@@ -2,6 +2,7 @@ var demand = require('must');
 var DateType = require('../DateType');
 var TextType = require('../../text/TextType');
 var moment = require('moment');
+moment.locale('ru');
 
 exports.initList = function (List) {
 	List.add({
