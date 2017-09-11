@@ -252,7 +252,7 @@ localfiles.prototype.uploadFiles = function (item, files, update, callback) {
 	}
 
 	async.map(files, function (file, processedFile) {
-
+		moment.locale('ru');
 		var prefix = field.options.datePrefix ? moment().format(field.options.datePrefix) + '-' : '';
 		var filename = prefix + file.name;
 		var filetype = file.mimetype || file.type;

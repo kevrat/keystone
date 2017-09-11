@@ -7,7 +7,7 @@ import {
 	FormSelect,
 	Grid,
 } from '../../../admin/client/App/elemental';
-
+moment.locale('ru');
 const PRESENCE_OPTIONS = [
 	{ label: 'At least one element', value: 'some' },
 	{ label: 'No element', value: 'none' },

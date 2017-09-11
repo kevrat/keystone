@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import ItemsTableCell from '../../components/ItemsTableCell';
 import ItemsTableValue from '../../components/ItemsTableValue';
-
+moment.locale('ru');
 var DateColumn = React.createClass({
 	displayName: 'DateColumn',
 	propTypes: {
