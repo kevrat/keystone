@@ -307,6 +307,6 @@ var keystone = require('keystone');
 var Post = keystone.list('Post');
 
 Post.model.findById(postId).exec(function(err, post) {
-  console.log(post._.createdAt.format('Do MMMM YYYY')); // 25th August 2013
+  console.log(post._.createdAt.format('DD-MM-YYYY')); // 25th August 2013
 });
 ```

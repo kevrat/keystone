@@ -6,7 +6,7 @@ import moment from 'moment';
 moment.locale('ru');
 
 const DEFAULT_INPUT_FORMAT = 'YYYY-MM-DD';
-const DEFAULT_FORMAT_STRING = 'Do MMM YYYY';
+const DEFAULT_FORMAT_STRING = 'DD-MM-YYYY';
 
 module.exports = Field.create({
 
