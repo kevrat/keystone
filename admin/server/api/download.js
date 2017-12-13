@@ -8,7 +8,7 @@ supports more features at the moment (custom .toCSV method on lists, etc)
 var _ = require('lodash');
 var async = require('async');
 var moment = require('moment');
-moment.locale('ru');
+var escapeValueForExcel = require('../security/escapeValueForExcel');
 
 var FN_ARGS = /^function\s*[^\(]*\(\s*([^\)]*)\)/m;
 
@@ -63,6 +63,11 @@ module.exports = function (req, res) {
 			} else {
 				rowData[field.path] = field.format(i);
 			}
+		});
+
+		// Prevent CSV macro injection
+		_.forOwn(rowData, (value, prop) => {
+			rowData[prop] = escapeValueForExcel(value);
 		});
 
 		return rowData;
